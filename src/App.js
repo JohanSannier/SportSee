@@ -7,8 +7,12 @@ function App(props) {
   return (
     <div className="app">
       <Navbar />
-      <Footer />
-      {/* <Example /> */}
+      <div className="main-content">
+        <Footer />
+        <div className="daily-act">
+          <Example />
+        </div>
+      </div>
     </div>
   );
 }
