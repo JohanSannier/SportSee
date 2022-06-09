@@ -21,35 +21,43 @@ function App(props) {
         <Footer />
         <div className="home">
           <Welcome />
-          <Daily />
-          <AvgDuration />
-          <Stats />
-          <Score />
-          <div className="nutrient-icons">
-            <Nutrient
-              nutrientIcon={Fire}
-              nutrientType="Calories"
-              nutrientEnd="kCal"
-              nutrientNumber={calories}
-            />
-            <Nutrient
-              nutrientIcon={Protein}
-              nutrientType="Protéines"
-              nutrientEnd="g"
-              nutrientNumber="155"
-            />
-            <Nutrient
-              nutrientIcon={Carbs}
-              nutrientType="Glucides"
-              nutrientEnd="g"
-              nutrientNumber="290"
-            />
-            <Nutrient
-              nutrientIcon={Fat}
-              nutrientType="Lipides"
-              nutrientEnd="g"
-              nutrientNumber="55"
-            />
+          <div className="flex-container">
+            <div className="left-content">
+              <div className="daily-wrapper">
+                <Daily />
+              </div>
+              <div className="bottom-content">
+                <AvgDuration />
+                <Stats />
+                <Score />
+              </div>
+            </div>
+            <div className="nutrient-icons">
+              <Nutrient
+                nutrientIcon={Fire}
+                nutrientType="Calories"
+                nutrientEnd="kCal"
+                nutrientNumber={calories}
+              />
+              <Nutrient
+                nutrientIcon={Protein}
+                nutrientType="Protéines"
+                nutrientEnd="g"
+                nutrientNumber="155"
+              />
+              <Nutrient
+                nutrientIcon={Carbs}
+                nutrientType="Glucides"
+                nutrientEnd="g"
+                nutrientNumber="290"
+              />
+              <Nutrient
+                nutrientIcon={Fat}
+                nutrientType="Lipides"
+                nutrientEnd="g"
+                nutrientNumber="55"
+              />
+            </div>
           </div>
         </div>
       </div>
