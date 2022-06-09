@@ -78,7 +78,7 @@ const data = [
 export default class Example extends PureComponent {
   render() {
     return (
-      <ResponsiveContainer width="75%" height="30%">
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={500}
           height={300}

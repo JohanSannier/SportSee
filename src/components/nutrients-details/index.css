@@ -1,0 +1,40 @@
+.calorie-count {
+  display: flex;
+  padding: 2rem;
+  background-color: aqua;
+}
+
+.Calories-count {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.Protéines-count {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.Glucides-count {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.Lipides-count {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nutrient-icon {
+  width: 3rem;
+}
+
+.nutrient-icon img {
+  width: 100%;
+}
+
+.nutrient-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
