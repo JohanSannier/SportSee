@@ -3,102 +3,119 @@ import "./index.css";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 
 const data = [
   {
     name: "1",
-    kg: 4000,
-    kCal: 2400,
-    amt: 2400,
+    kg: 66,
+    kCal: 242,
   },
   {
     name: "2",
-    kg: 3000,
-    kCal: 1398,
-    amt: 2210,
+    kg: 68.5,
+    kCal: 298,
   },
   {
     name: "3",
-    kg: 2000,
-    kCal: 9800,
-    amt: 2290,
+    kg: 67,
+    kCal: 356,
   },
   {
     name: "4",
-    kg: 2780,
-    kCal: 3908,
-    amt: 2000,
+    kg: 67.3,
+    kCal: 311,
   },
   {
     name: "5",
-    kg: 1890,
-    kCal: 4800,
-    amt: 2181,
+    kg: 67.8,
+    kCal: 269,
   },
   {
     name: "6",
-    kg: 2390,
-    kCal: 3800,
-    amt: 2500,
+    kg: 68,
+    kCal: 301,
   },
   {
     name: "7",
-    kg: 3490,
-    kCal: 4300,
-    amt: 2100,
+    kg: 67.7,
+    kCal: 249,
   },
   {
     name: "8",
-    kg: 3490,
-    kCal: 4300,
-    amt: 2100,
+    kg: 67.2,
+    kCal: 198,
   },
   {
     name: "9",
-    kg: 3490,
-    kCal: 4300,
-    amt: 2100,
+    kg: 67.5,
+    kCal: 229,
   },
   {
     name: "10",
-    kg: 3490,
-    kCal: 4300,
-    amt: 2100,
+    kg: 68,
+    kCal: 379,
   },
 ];
 
 export default class Example extends PureComponent {
   render() {
     return (
-      <ResponsiveContainer width="100%" height="100%">
-        <BarChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="kg" fill="#282D30" />
-          <Bar dataKey="kCal" fill="#E60000" />
-        </BarChart>
-      </ResponsiveContainer>
+      <>
+        <div className="activity-legend">
+          <h2>Activité quotidienne</h2>
+          <ul>
+            <li className="bullet-kg">Poids (kg)</li>
+            <li className="bullet-kcal">Calories brûlées (kCal)</li>
+          </ul>
+        </div>
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart
+            width={500}
+            height={300}
+            data={data}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid
+              strokeDasharray="3 3"
+              vertical=""
+              horizontal="true"
+            />
+            <XAxis dataKey="name" />
+            <YAxis
+              axisLine={false}
+              tickLine={false}
+              orientation="right"
+              dataKey="kg"
+              domain={["dataMin - 1", "dataMax + 2"]}
+              allowDataOverflow={true}
+            />
+            <Tooltip />
+            <Bar
+              dataKey="kg"
+              fill="#282D30"
+              radius={[10, 10, 0, 0]}
+              barSize={10}
+            />
+            <Bar
+              dataKey="kCal"
+              fill="#E60000"
+              radius={[10, 10, 0, 0]}
+              barSize={10}
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      </>
     );
   }
 }
