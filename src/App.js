@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Daily from "./components/daily-activity";
@@ -11,8 +11,24 @@ import Fire from "./assets/calories-icon.png";
 import Carbs from "./assets/carbs-icon.png";
 import Fat from "./assets/fat-icon.png";
 import Protein from "./assets/protein-icon.png";
+import CallApi from "./services/API";
 
 function App(props) {
+  const [data, setData] = useState([]);
+  let api = new CallApi(12);
+
+  useEffect(() => {
+    (async () => {
+      let apiData = await api.getUser();
+      setData(apiData);
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  console.log("====================================");
+  console.log(data);
+  console.log("====================================");
+
   let calories = 1930;
   return (
     <div className="app">
