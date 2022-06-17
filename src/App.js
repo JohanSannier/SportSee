@@ -19,17 +19,19 @@ function App(props) {
 
   useEffect(() => {
     (async () => {
-      let apiData = await api.getUser();
-      setData(apiData);
+      let userData = await api.getUser();
+      let userPerformance = await api.getUserPerformance();
+      let userActivity = await api.getUserActivity();
+      let userSessions = await api.getUserSessions();
+      setData([userData, userPerformance, userActivity, userSessions]);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   console.log("====================================");
-  console.log(data);
+  console.log(data[0]);
   console.log("====================================");
 
-  let calories = 1930;
   return (
     <div className="app">
       <Navbar />
@@ -53,7 +55,7 @@ function App(props) {
                 nutrientIcon={Fire}
                 nutrientType="Calories"
                 nutrientEnd="kCal"
-                nutrientNumber={calories}
+                nutrientNumber={"1930"}
               />
               <Nutrient
                 nutrientIcon={Protein}
