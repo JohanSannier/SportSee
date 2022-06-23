@@ -16,12 +16,15 @@ export default class CallApi {
 
   async getUserPerformance() {
     try {
-      let response = await fetch(
+      const response = await fetch(
         `http://localhost:3000/user/${this.userId}/performance`
       );
-      let allData = await response.json();
-      let data = allData.data;
-      return data;
+      const data = await response.json();
+      const userPerformance = Object.values(data.data.kind);
+      userPerformance.map(
+        (kindOfData, index) => (data.data.data[index].kindOfData = kindOfData)
+      );
+      return data.data.data;
     } catch (err) {
       console.error(err);
     }

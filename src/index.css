@@ -46,9 +46,10 @@ ul {
 
 .bottom-content {
   display: flex;
-  height: 10rem;
+  height: 18rem;
   /* Changer hauteur ici  */
   width: 100%;
+  margin-top: 3rem;
 }
 
 .daily-wrapper {

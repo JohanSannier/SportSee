@@ -28,10 +28,6 @@ function App(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log("====================================");
-  console.log(data[0]);
-  console.log("====================================");
-
   return (
     <div className="app">
       <Navbar />
@@ -46,7 +42,7 @@ function App(props) {
               </div>
               <div className="bottom-content">
                 <AvgDuration />
-                <Stats />
+                <Stats userPerformance={data[1]} />
                 <Score />
               </div>
             </div>
