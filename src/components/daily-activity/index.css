@@ -1,37 +1,41 @@
-.bullet-kg::before,
-.bullet-kcal::before {
-  content: "\2022";
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  /* margin-left: -1em; */
-  font-size: 1rem;
-  transform: translate(50%, 10%);
-}
-
-.bullet-kg::before {
-  color: #282d30;
-}
-.bullet-kcal::before {
-  color: #e60000;
-}
-
-.activity-legend,
-.activity-legend ul {
-  display: flex;
-}
-
-.activity-legend ul {
-  margin-left: auto;
-  margin-right: 6rem;
-}
-
-h2 {
-  font-weight: 500;
-  font-size: 0.8rem;
-  margin-left: 2rem;
-}
-
-.tessst {
+.daily-activity {
   background-color: #fbfbfb;
+  padding: 1.5rem;
+  border-radius: 5px;
+  height: 280px;
+  width: 100%;
+}
+
+.daily-activity-legend {
+  font-family: "Roboto";
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.daily-activity-legend h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+}
+
+.legend img {
+  width: 8px;
+  height: 8px;
+  margin-right: 10px;
+}
+
+.weight {
+  margin-right: 40px;
+}
+
+.weight,
+.calories {
+  display: flex;
+  font-size: 14px;
+  align-items: center;
 }

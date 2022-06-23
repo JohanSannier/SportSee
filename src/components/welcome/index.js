@@ -5,7 +5,7 @@ function index(props) {
   return (
     <section className="welcome-section">
       <h1>
-        Bonjour <span>Thomas</span>
+        Bonjour <span>{props.userName}</span>
       </h1>
       <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
     </section>

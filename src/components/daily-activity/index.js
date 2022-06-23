@@ -1,121 +1,76 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import "./index.css";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+import redDot from "../../assets/red-dot.png";
+import blackDot from "../../assets/black-dot.png";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 
-const data = [
-  {
-    name: "1",
-    kg: 66,
-    kCal: 242,
-  },
-  {
-    name: "2",
-    kg: 68.5,
-    kCal: 298,
-  },
-  {
-    name: "3",
-    kg: 67,
-    kCal: 356,
-  },
-  {
-    name: "4",
-    kg: 67.3,
-    kCal: 311,
-  },
-  {
-    name: "5",
-    kg: 67.8,
-    kCal: 269,
-  },
-  {
-    name: "6",
-    kg: 68,
-    kCal: 301,
-  },
-  {
-    name: "7",
-    kg: 67.7,
-    kCal: 249,
-  },
-  {
-    name: "8",
-    kg: 67.2,
-    kCal: 198,
-  },
-  {
-    name: "9",
-    kg: 67.5,
-    kCal: 229,
-  },
-  {
-    name: "10",
-    kg: 68,
-    kCal: 379,
-  },
-];
-
-export default class Example extends PureComponent {
-  render() {
-    return (
-      <>
-        <div className="activity-legend">
-          <h2>Activité quotidienne</h2>
-          <ul>
-            <li className="bullet-kg">Poids (kg)</li>
-            <li className="bullet-kcal">Calories brûlées (kCal)</li>
-          </ul>
+export default function UserDailyActivity(props) {
+  return (
+    <div className="daily-activity">
+      <div className="daily-activity-legend">
+        <h3>Activité quotidienne</h3>
+        <div className="legend">
+          <div className="weight">
+            <img src={blackDot} alt="" />
+            <p>Poids (kg)</p>
+          </div>
+          <div className="calories">
+            <img src={redDot} alt="" />
+            <p>Calories brûlées (kCal)</p>
+          </div>
         </div>
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid
-              strokeDasharray="3 3"
-              vertical=""
-              horizontal="true"
-            />
-            <XAxis dataKey="name" />
-            <YAxis
-              axisLine={false}
-              tickLine={false}
-              orientation="right"
-              dataKey="kg"
-              domain={["dataMin - 1", "dataMax + 2"]}
-              allowDataOverflow={true}
-            />
-            <Tooltip />
-            <Bar
-              dataKey="kg"
-              fill="#282D30"
-              radius={[10, 10, 0, 0]}
-              barSize={10}
-            />
-            <Bar
-              dataKey="kCal"
-              fill="#E60000"
-              radius={[10, 10, 0, 0]}
-              barSize={10}
-            />
-          </BarChart>
-        </ResponsiveContainer>
-      </>
-    );
-  }
+      </div>
+
+      <BarChart
+        width={770}
+        height={245}
+        data={props.userActivity}
+        barCategoryGap={35}
+        barGap={8}
+        margin={{ top: 50, left: 20, bottom: 20 }}
+      >
+        <CartesianGrid strokeDasharray="3 3" vertical={false} />
+        <XAxis
+          tick={{
+            transform: "translate(0, 16)",
+            stroke: "#9B9EAC",
+            fontSize: "14px",
+          }}
+          scale="auto"
+          padding={{ left: -25, right: -25 }}
+          tickLine={false}
+          dataKey="name"
+          axisLine={false}
+          interval={0}
+        />
+        <YAxis
+          yAxisId={"kil"}
+          domain={["dataMin - 2", "dataMax + 1"]}
+          tick={{ transform: "translate(0, 0)", fontSize: "14px" }}
+          tickMargin={15}
+          tickLine={true}
+          orientation="right"
+          dataKey="kilogram"
+          axisLine={false}
+        />
+        <YAxis
+          yAxisId={"cal"}
+          hide={true}
+          domain={["dataMin - 100", "dataMax"]}
+        />
+        <Bar
+          yAxisId={"kil"}
+          dataKey="kilogram"
+          fill="#000"
+          radius={[50, 50, 0, 0]}
+        />
+        <Bar
+          yAxisId={"cal"}
+          dataKey="calories"
+          fill="#e60000"
+          radius={[50, 50, 0, 0]}
+        />
+      </BarChart>
+    </div>
+  );
 }

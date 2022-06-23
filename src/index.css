@@ -29,7 +29,7 @@ ul {
 
 .home {
   flex-grow: 1;
-  padding: 3rem;
+  padding: 1.5rem;
 }
 
 .flex-container {
@@ -39,21 +39,15 @@ ul {
 }
 
 .left-content {
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   flex-direction: column;
 }
 
 .bottom-content {
   display: flex;
-  height: 18rem;
+  height: 16.467rem;
   /* Changer hauteur ici  */
   width: 100%;
-  margin-top: 3rem;
-}
-
-.daily-wrapper {
-  height: 10rem;
-  /* Changer hauteur ici  */
-  width: 100%;
+  margin-top: 1.3rem;
 }

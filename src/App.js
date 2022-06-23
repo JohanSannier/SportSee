@@ -15,15 +15,26 @@ import CallApi from "./services/API";
 
 function App(props) {
   const [data, setData] = useState([]);
-  let api = new CallApi(12);
+  let api = new CallApi(18);
 
   useEffect(() => {
     (async () => {
       let userData = await api.getUser();
+      let userName = await api.getUserName();
       let userPerformance = await api.getUserPerformance();
       let userActivity = await api.getUserActivity();
       let userSessions = await api.getUserSessions();
-      setData([userData, userPerformance, userActivity, userSessions]);
+      let userScore = await api.getUserScore();
+      let userNutrients = await api.getUserNutrients();
+      setData([
+        userName,
+        userData,
+        userPerformance,
+        userActivity,
+        userSessions,
+        userScore,
+        userNutrients,
+      ]);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -34,16 +45,16 @@ function App(props) {
       <div className="main-content">
         <Footer />
         <div className="home">
-          <Welcome />
+          <Welcome userName={data[0]} />
           <div className="flex-container">
             <div className="left-content">
               <div className="daily-wrapper">
-                <Daily />
+                <Daily userActivity={data[3]} />
               </div>
               <div className="bottom-content">
-                <AvgDuration />
-                <Stats userPerformance={data[1]} />
-                <Score />
+                <AvgDuration userSessions={data[4]} />
+                <Stats userPerformance={data[2]} />
+                <Score userScore={data[5]} />
               </div>
             </div>
             <div className="nutrient-icons">

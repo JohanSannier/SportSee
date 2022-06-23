@@ -1,60 +1,39 @@
-import React, { PureComponent } from "react";
-import {
-  RadialBarChart,
-  RadialBar,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import React from "react";
+import "./index.css";
+import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 
-const data = [
-  {
-    name: "50+",
-    uv: 2.63,
-    pv: 4800,
-    fill: "#d0ed57",
-  },
-  {
-    name: "unknow",
-    uv: 6.67,
-    pv: 4800,
-    fill: "#ffc658",
-  },
-];
-
-const style = {
-  top: "50%",
-  right: 0,
-  transform: "translate(0, -50%)",
-  lineHeight: "24px",
-};
-
-export default class Example extends PureComponent {
-  render() {
-    return (
+export default function UserScore(props) {
+  let chartValues = [
+    {
+      value: 1,
+      fill: "white",
+    },
+    {
+      value: props.userScore,
+      fill: "#FF0101",
+    },
+  ];
+  return (
+    <div className="score-chart">
+      <h2>Score</h2>
+      <h3>
+        <span>{props.userScore ? props.userScore.value + "%" : null}</span>{" "}
+        <span className="score-objectives">de votre objectif</span>
+      </h3>
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart
           cx="50%"
-          cy="50%"
-          innerRadius="10%"
+          cy="55%"
+          innerRadius="80%"
           outerRadius="80%"
           barSize={10}
-          data={data}
+          data={chartValues}
+          startAngle={110}
+          endAngle={0}
         >
-          <RadialBar
-            minAngle={15}
-            label={{ position: "insideStart", fill: "#fff" }}
-            background
-            clockWise
-            dataKey="uv"
-          />
-          <Legend
-            iconSize={10}
-            layout="vertical"
-            verticalAlign="middle"
-            wrapperStyle={style}
-          />
+          <RadialBar dataKey="value" cornerRadius={10} />
         </RadialBarChart>
       </ResponsiveContainer>
-    );
-  }
+    </div>
+  );
 }

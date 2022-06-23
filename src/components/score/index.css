@@ -1,0 +1,40 @@
+.score-chart {
+  z-index: 99;
+  position: relative;
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  width: 100%;
+  margin-left: 1rem;
+}
+
+.score-chart > h2 {
+  position: absolute;
+  font-size: 1rem;
+  margin-top: 1rem;
+  margin-left: 3rem;
+}
+
+.score-chart > h3 {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  color: #282d30;
+  font-size: 0.9rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.score-chart > h3 > span {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.score-chart > h3 > span.score-objectives {
+  font-size: 0.8rem;
+  width: 50%;
+  line-height: 1.2rem;
+  color: #74798c;
+}
