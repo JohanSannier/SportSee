@@ -2,5 +2,6 @@
   background: #282d30;
   border-radius: 5px;
   text-transform: capitalize;
-  padding: 0.3rem;
+  padding: 0.4rem;
+  overflow: visible;
 }

@@ -7,10 +7,6 @@ import Stats from "./components/stats";
 import Score from "./components/score";
 import Welcome from "./components/welcome";
 import Nutrient from "./components/nutrients-details";
-import Fire from "./assets/calories-icon.png";
-import Carbs from "./assets/carbs-icon.png";
-import Fat from "./assets/fat-icon.png";
-import Protein from "./assets/protein-icon.png";
 import CallApi from "./services/API";
 
 function App(props) {
@@ -58,30 +54,7 @@ function App(props) {
               </div>
             </div>
             <div className="nutrient-icons">
-              <Nutrient
-                nutrientIcon={Fire}
-                nutrientType="Calories"
-                nutrientEnd="kCal"
-                nutrientNumber={"1930"}
-              />
-              <Nutrient
-                nutrientIcon={Protein}
-                nutrientType="Protéines"
-                nutrientEnd="g"
-                nutrientNumber="155"
-              />
-              <Nutrient
-                nutrientIcon={Carbs}
-                nutrientType="Glucides"
-                nutrientEnd="g"
-                nutrientNumber="290"
-              />
-              <Nutrient
-                nutrientIcon={Fat}
-                nutrientType="Lipides"
-                nutrientEnd="g"
-                nutrientNumber="55"
-              />
+              <Nutrient userNutrients={data[6]} />
             </div>
           </div>
         </div>

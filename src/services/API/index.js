@@ -29,10 +29,18 @@ export default class CallApi {
         `http://localhost:3000/user/${this.userId}/performance`
       );
       const data = await response.json();
-      const userPerformance = Object.values(data.data.kind);
-      userPerformance.map(
+      const translatedLabels = [
+        "Cardio",
+        "Énergie",
+        "Endurance",
+        "Force",
+        "Vitesse",
+        "Intensité",
+      ];
+      translatedLabels.map(
         (kindOfData, index) => (data.data.data[index].kindOfData = kindOfData)
       );
+      console.log(data.data.data);
       return data.data.data;
     } catch (err) {
       console.error(err);
@@ -84,10 +92,26 @@ export default class CallApi {
     const response = await fetch(`http://localhost:3000/user/${this.userId}`);
     const data = await response.json();
     const userCount = data.data.keyData;
-    const userCalories = userCount.calorieCount;
-    const userProteins = userCount.proteinCount;
-    const userCarbs = userCount.carbohydrateCount;
-    const userLipids = userCount.lipidCount;
+    const userCalories = {
+      type: "Calories",
+      amount: userCount.calorieCount,
+      unit: "kCal",
+    };
+    const userProteins = {
+      type: "Protéines",
+      amount: userCount.proteinCount,
+      unit: "g",
+    };
+    const userCarbs = {
+      type: "Glucides",
+      amount: userCount.carbohydrateCount,
+      unit: "g",
+    };
+    const userLipids = {
+      type: "Lipides",
+      amount: userCount.lipidCount,
+      unit: "g",
+    };
     return [userCalories, userProteins, userCarbs, userLipids];
   }
 }
