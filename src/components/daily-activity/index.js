@@ -2,9 +2,28 @@ import React from "react";
 import "./index.css";
 import redDot from "../../assets/red-dot.png";
 import blackDot from "../../assets/black-dot.png";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
 export default function UserDailyActivity(props) {
+  const TooltipStyle = ({ payload }) => {
+    if (payload && payload.length) {
+      return (
+        <div
+          className="tooltip"
+          style={{
+            background: "#E60000",
+            padding: "1rem 0.5rem",
+            color: "white",
+            textAlign: "center",
+          }}
+        >
+          <p>{payload[0].value}kg</p>
+          <p style={{ marginTop: ".8rem" }}>{payload[1].value}Kcal</p>
+        </div>
+      );
+    }
+    return null;
+  };
   return (
     <div className="daily-activity">
       <div className="daily-activity-legend">
@@ -30,6 +49,7 @@ export default function UserDailyActivity(props) {
         margin={{ top: 50, left: 20, bottom: 20 }}
       >
         <CartesianGrid strokeDasharray="3 3" vertical={false} />
+        <Tooltip content={<TooltipStyle payload={[props.userActivity]} />} />
         <XAxis
           tick={{
             transform: "translate(0, 16)",
