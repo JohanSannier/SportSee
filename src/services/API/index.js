@@ -33,33 +33,43 @@ export default class CallApi {
     try {
       const response = await fetch(`${this.baseURL}${this.userId}/performance`);
       const data = await response.json();
-      const translatedLabels = [
-        "Cardio",
-        "Énergie",
-        "Endurance",
-        "Force",
-        "Vitesse",
-        "Intensité",
-      ];
-      translatedLabels.map(
-        (kindOfData, index) => (data.data.data[index].kindOfData = kindOfData)
-      );
-      return data.data.data;
+      const formatedData = this.formatUserPerformance(data);
+      return formatedData;
     } catch (err) {
       console.error(err);
     }
+  }
+
+  formatUserPerformance(data) {
+    const translatedLabels = [
+      "Cardio",
+      "Énergie",
+      "Endurance",
+      "Force",
+      "Vitesse",
+      "Intensité",
+    ];
+    translatedLabels.map(
+      (kindOfData, index) => (data.data.data[index].kindOfData = kindOfData)
+    );
+    return data.data.data;
   }
 
   async getUserActivity() {
     try {
       const response = await fetch(`${this.baseURL}${this.userId}/activity`);
       const data = await response.json();
-      const userActivity = data.data.sessions;
-      userActivity.map((session, index) => (session.name = index + 1));
-      return userActivity;
+      const formatedData = this.formatUserActivity(data);
+      return formatedData;
     } catch (err) {
       console.error(err);
     }
+  }
+
+  formatUserActivity(data) {
+    const userActivity = data.data.sessions;
+    userActivity.map((session, index) => (session.name = index + 1));
+    return userActivity;
   }
 
   async getUserSessions() {
@@ -68,23 +78,33 @@ export default class CallApi {
         `${this.baseURL}${this.userId}/average-sessions`
       );
       const data = await response.json();
-      const userSessions = data.data.sessions;
-      const weekDays = ["L", "M", "M", "J", "V", "S", "D"];
-      const sessionData = userSessions.map((item) => {
-        return {
-          weekDays: weekDays[item.day - 1],
-          sessionLength: item.sessionLength,
-        };
-      });
-      return sessionData;
+      const formatedData = this.formatUserSessions(data);
+      return formatedData;
     } catch (err) {
       console.error(err);
     }
   }
 
+  formatUserSessions(data) {
+    const userSessions = data.data.sessions;
+    const weekDays = ["L", "M", "M", "J", "V", "S", "D"];
+    const sessionData = userSessions.map((item) => {
+      return {
+        weekDays: weekDays[item.day - 1],
+        sessionLength: item.sessionLength,
+      };
+    });
+    return sessionData;
+  }
+
   async getUserScore() {
     const response = await fetch(`${this.baseURL}${this.userId}`);
     const data = await response.json();
+    const formatedData = this.formatUserScore(data);
+    return formatedData;
+  }
+
+  formatUserScore(data) {
     const userScore = data.data.score || data.data.todayScore;
     return { name: userScore, value: userScore * 100 };
   }
@@ -92,6 +112,11 @@ export default class CallApi {
   async getUserNutrients() {
     const response = await fetch(`${this.baseURL}${this.userId}`);
     const data = await response.json();
+    const formatedData = this.formatUserNutrients(data);
+    return formatedData;
+  }
+
+  formatUserNutrients(data) {
     const userCount = data.data.keyData;
     const userCalories = {
       type: "Calories",
