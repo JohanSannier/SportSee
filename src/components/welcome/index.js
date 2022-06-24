@@ -1,7 +1,8 @@
 import React from "react";
+import { string } from "prop-types";
 import "./index.css";
 
-function index(props) {
+export default function Welcome(props) {
   return (
     <section className="welcome-section">
       <h1>
@@ -12,4 +13,6 @@ function index(props) {
   );
 }
 
-export default index;
+Welcome.propTypes = {
+  userName: string,
+};

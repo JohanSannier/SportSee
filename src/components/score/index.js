@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import { array } from "prop-types";
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 
 export default function UserScore(props) {
@@ -37,3 +38,7 @@ export default function UserScore(props) {
     </div>
   );
 }
+
+UserScore.propTypes = {
+  UserScore: array,
+};

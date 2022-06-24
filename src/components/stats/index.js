@@ -1,4 +1,5 @@
 import React from "react";
+import { array } from "prop-types";
 import {
   Radar,
   RadarChart,
@@ -47,3 +48,7 @@ export default function UserPerformance(props) {
     </ResponsiveContainer>
   );
 }
+
+UserPerformance.propTypes = {
+  userPerformance: array,
+};

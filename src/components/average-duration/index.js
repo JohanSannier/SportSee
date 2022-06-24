@@ -1,4 +1,5 @@
 import React from "react";
+import { array } from "prop-types";
 import { Line, LineChart, XAxis, YAxis, Tooltip } from "recharts";
 import "./index.css";
 
@@ -52,3 +53,7 @@ export default function userSessions(props) {
     </div>
   );
 }
+
+userSessions.propTypes = {
+  userSessions: array,
+};

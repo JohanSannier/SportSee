@@ -1,4 +1,5 @@
 import React from "react";
+import { array } from "prop-types";
 import "./index.css";
 import redDot from "../../assets/red-dot.png";
 import blackDot from "../../assets/black-dot.png";
@@ -86,3 +87,7 @@ export default function UserDailyActivity(props) {
     </div>
   );
 }
+
+UserDailyActivity.propTypes = {
+  userActivity: array,
+};

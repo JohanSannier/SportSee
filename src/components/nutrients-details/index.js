@@ -1,11 +1,12 @@
 import React from "react";
+import { array } from "prop-types";
 import "./index.css";
 import Fire from "../../assets/calories-icon.png";
 import Carbs from "../../assets/carbs-icon.png";
 import Fat from "../../assets/fat-icon.png";
 import Protein from "../../assets/protein-icon.png";
 
-function index(props) {
+export default function UserNutrients(props) {
   const iconsPath = [Fire, Carbs, Fat, Protein];
   return (
     <>
@@ -33,4 +34,6 @@ function index(props) {
   );
 }
 
-export default index;
+UserNutrients.propTypes = {
+  userNutrients: array,
+};

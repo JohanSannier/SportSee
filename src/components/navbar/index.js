@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../assets/logo.png";
 import "./index.css";
 
-function index(props) {
+export default function index(props) {
   return (
     <nav>
       <ul>
@@ -15,5 +15,3 @@ function index(props) {
     </nav>
   );
 }
-
-export default index;

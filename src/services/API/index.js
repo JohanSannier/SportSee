@@ -44,7 +44,6 @@ export default class CallApi {
       translatedLabels.map(
         (kindOfData, index) => (data.data.data[index].kindOfData = kindOfData)
       );
-      console.log(data.data.data);
       return data.data.data;
     } catch (err) {
       console.error(err);
