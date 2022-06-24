@@ -8,17 +8,9 @@ export default function UserDailyActivity(props) {
   const TooltipStyle = ({ payload }) => {
     if (payload && payload.length) {
       return (
-        <div
-          className="tooltip"
-          style={{
-            background: "#E60000",
-            padding: "1rem 0.5rem",
-            color: "white",
-            textAlign: "center",
-          }}
-        >
+        <div className="tooltip">
           <p>{payload[0].value}kg</p>
-          <p style={{ marginTop: ".8rem" }}>{payload[1].value}Kcal</p>
+          <p className="tooltip-kcal">{payload[1].value}Kcal</p>
         </div>
       );
     }

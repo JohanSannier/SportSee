@@ -6,6 +6,7 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
   ResponsiveContainer,
+  Tooltip,
 } from "recharts";
 import "./index.css";
 
@@ -22,6 +23,7 @@ export default function UserPerformance(props) {
         height={230}
         data={props.userPerformance}
       >
+        <Tooltip />
         <PolarGrid radialLines={false} />
         <PolarAngleAxis
           dataKey="kindOfData"

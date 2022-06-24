@@ -12,6 +12,9 @@ export default class CallApi {
       return user;
     } catch (err) {
       console.error(err);
+      alert(
+        "Le service est actuellement indisponible, veuillez nous excuser pour la gêne occasionnée. Merci de réessayer dans quelques minutes."
+      );
     }
   }
 

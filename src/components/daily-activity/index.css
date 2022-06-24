@@ -39,3 +39,14 @@
   font-size: 14px;
   align-items: center;
 }
+
+.tooltip {
+  background: #e60000;
+  padding: 1rem 0.5rem;
+  color: white;
+  text-align: center;
+}
+
+.tooltip-kcal {
+  margin-top: 0.8rem;
+}
