@@ -1,13 +1,12 @@
 export default class CallApi {
   constructor(userId) {
+    this.baseURL = "http://localhost:3000/user/";
     this.userId = userId;
   }
 
   async getUser() {
     try {
-      const response = await fetch(
-        `http://localhost:3000/user/${this.userId}/`
-      );
+      const response = await fetch(`${this.baseURL}${this.userId}/`);
       const data = await response.json();
       const user = data.data;
       return user;
@@ -17,17 +16,19 @@ export default class CallApi {
   }
 
   async getUserName() {
-    const response = await fetch(`http://localhost:3000/user/${this.userId}`);
-    const data = await response.json();
-    const userName = data.data.userInfos.firstName;
-    return userName;
+    try {
+      const response = await fetch(`${this.baseURL}${this.userId}/`);
+      const data = await response.json();
+      const userName = data.data.userInfos.firstName;
+      return userName;
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   async getUserPerformance() {
     try {
-      const response = await fetch(
-        `http://localhost:3000/user/${this.userId}/performance`
-      );
+      const response = await fetch(`${this.baseURL}${this.userId}/performance`);
       const data = await response.json();
       const translatedLabels = [
         "Cardio",
@@ -49,9 +50,7 @@ export default class CallApi {
 
   async getUserActivity() {
     try {
-      const response = await fetch(
-        `http://localhost:3000/user/${this.userId}/activity`
-      );
+      const response = await fetch(`${this.baseURL}${this.userId}/activity`);
       const data = await response.json();
       const userActivity = data.data.sessions;
       userActivity.map((session, index) => (session.name = index + 1));
@@ -64,7 +63,7 @@ export default class CallApi {
   async getUserSessions() {
     try {
       const response = await fetch(
-        `http://localhost:3000/user/${this.userId}/average-sessions`
+        `${this.baseURL}${this.userId}/average-sessions`
       );
       const data = await response.json();
       const userSessions = data.data.sessions;
@@ -82,14 +81,14 @@ export default class CallApi {
   }
 
   async getUserScore() {
-    const response = await fetch(`http://localhost:3000/user/${this.userId}`);
+    const response = await fetch(`${this.baseURL}${this.userId}`);
     const data = await response.json();
     const userScore = data.data.score || data.data.todayScore;
     return { name: userScore, value: userScore * 100 };
   }
 
   async getUserNutrients() {
-    const response = await fetch(`http://localhost:3000/user/${this.userId}`);
+    const response = await fetch(`${this.baseURL}${this.userId}`);
     const data = await response.json();
     const userCount = data.data.keyData;
     const userCalories = {

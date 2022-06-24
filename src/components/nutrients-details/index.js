@@ -7,10 +7,9 @@ import Protein from "../../assets/protein-icon.png";
 
 function index(props) {
   const iconsPath = [Fire, Carbs, Fat, Protein];
-  // console.log(props.userNutrients);
   return (
     <>
-      {/* {props.userNutrients.map((data, index) => (
+      {props.userNutrients.map((data, index) => (
         <div
           className={`${props.userNutrients[index].type}-count`}
           key={`${props.userNutrients[index].type}-${index}`}
@@ -29,7 +28,7 @@ function index(props) {
             <p>{props.userNutrients[index].type}</p>
           </div>
         </div>
-      ))} */}
+      ))}
     </>
   );
 }

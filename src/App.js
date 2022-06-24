@@ -11,12 +11,12 @@ import CallApi from "./services/API";
 
 function App(props) {
   const [data, setData] = useState([]);
-  let api = new CallApi(18);
+  let api = new CallApi(12);
 
   useEffect(() => {
     (async () => {
-      let userData = await api.getUser();
       let userName = await api.getUserName();
+      let userData = await api.getUser();
       let userPerformance = await api.getUserPerformance();
       let userActivity = await api.getUserActivity();
       let userSessions = await api.getUserSessions();
@@ -41,20 +41,20 @@ function App(props) {
       <div className="main-content">
         <Footer />
         <div className="home">
-          <Welcome userName={data[0]} />
+          {data[0] && <Welcome userName={data[0]} />}
           <div className="flex-container">
             <div className="left-content">
               <div className="daily-wrapper">
-                <Daily userActivity={data[3]} />
+                {data[3] && <Daily userActivity={data[3]} />}
               </div>
               <div className="bottom-content">
-                <AvgDuration userSessions={data[4]} />
-                <Stats userPerformance={data[2]} />
-                <Score userScore={data[5]} />
+                {data[4] && <AvgDuration userSessions={data[4]} />}
+                {data[2] && <Stats userPerformance={data[2]} />}
+                {data[5] && <Score userScore={data[5]} />}
               </div>
             </div>
             <div className="nutrient-icons">
-              <Nutrient userNutrients={data[6]} />
+              {data[6] && <Nutrient userNutrients={data[6]} />}
             </div>
           </div>
         </div>
