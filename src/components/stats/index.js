@@ -13,15 +13,11 @@ import "./index.css";
 
 export default function UserPerformance(props) {
   return (
-    <ResponsiveContainer
-      width="100%"
-      height="100%"
-      className={"user-performance"}
-    >
+    <div className="user-performance">
       <RadarChart
         outerRadius={90}
-        width={230}
-        height={230}
+        width={290}
+        height={270}
         data={props.userPerformance}
       >
         <Tooltip />
@@ -45,7 +41,7 @@ export default function UserPerformance(props) {
           fillOpacity={0.6}
         />
       </RadarChart>
-    </ResponsiveContainer>
+    </div>
   );
 }
 

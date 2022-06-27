@@ -23,23 +23,23 @@ ul {
 
 .main-content {
   display: flex;
-  width: 100%;
+  max-width: 100%;
   height: 100%;
 }
 
 .home {
-  flex-grow: 1;
   padding: 1.5rem;
+  width: 100%;
 }
 
 .flex-container {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
 }
 
 .left-content {
-  /* width: 100%; */
+  /* width: 80%; */
   height: 100%;
   flex-direction: column;
 }
@@ -47,7 +47,5 @@ ul {
 .bottom-content {
   display: flex;
   height: 16.467rem;
-  /* Changer hauteur ici  */
-  width: 100%;
-  margin-top: 1.3rem;
+  margin-top: 4rem;
 }

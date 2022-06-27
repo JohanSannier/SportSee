@@ -2,10 +2,11 @@
   background: #282d30;
   border-radius: 5px;
   text-transform: capitalize;
-  padding: 0.4rem;
-  overflow: visible;
+  padding: 0.8 rem;
+  /* width: 100%; */
+  /* overflow: visible; */
 }
 
 tspan {
-  font-size: 10px;
+  font-size: 11px;
 }
