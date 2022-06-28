@@ -74,3 +74,29 @@ ul {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.activity-userpage,
+.session-userpage,
+.score-userpage,
+.activities-userpage,
+.nutrients-userpage {
+  padding: 2rem;
+}
+
+.list-items-activity,
+.list-items-sessions,
+.list-items-score,
+.list-items-activities,
+.list-items-nutrients {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.title-activity,
+.title-sessions,
+.title-score,
+.title-activities,
+.title-nutrients {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

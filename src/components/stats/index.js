@@ -6,7 +6,6 @@ import {
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
-  ResponsiveContainer,
   Tooltip,
 } from "recharts";
 import "./index.css";

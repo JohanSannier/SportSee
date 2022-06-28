@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Error from "./pages/Error";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Daily from "./components/daily-activity";
@@ -12,6 +13,7 @@ import CallApi from "./services/API";
 
 function App(props) {
   const [data, setData] = useState([]);
+  const isEmpty = (currentValue) => currentValue === null;
   let params = useParams();
   let api = new CallApi(params.userId);
 
@@ -43,6 +45,7 @@ function App(props) {
       <div className="main-content">
         <Footer />
         <div className="home">
+          {data.every(isEmpty) && <Error />}
           {data[0] && <Welcome userName={data[0]} />}
           <div className="flex-container">
             <div className="left-content">

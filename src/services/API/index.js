@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 export default class CallApi {
   constructor(userId) {
     this.baseURL = "http://localhost:3000/user/";
@@ -6,10 +7,14 @@ export default class CallApi {
 
   async getUser() {
     try {
-      const response = await fetch(`${this.baseURL}${this.userId}/`);
-      const data = await response.json();
-      const user = data.data;
-      return user;
+      if (this.userId == 12 || this.userId == 18) {
+        const response = await fetch(`${this.baseURL}${this.userId}/`);
+        const data = await response.json();
+        const user = data.data;
+        return user;
+      } else {
+        return null;
+      }
     } catch (err) {
       console.error(err);
       alert(
@@ -20,10 +25,14 @@ export default class CallApi {
 
   async getUserName() {
     try {
-      const response = await fetch(`${this.baseURL}${this.userId}/`);
-      const data = await response.json();
-      const userName = data.data.userInfos.firstName;
-      return userName;
+      if (this.userId == 12 || this.userId == 18) {
+        const response = await fetch(`${this.baseURL}${this.userId}/`);
+        const data = await response.json();
+        const userName = data.data.userInfos.firstName;
+        return userName;
+      } else {
+        return null;
+      }
     } catch (err) {
       console.error(err);
     }
@@ -31,10 +40,16 @@ export default class CallApi {
 
   async getUserPerformance() {
     try {
-      const response = await fetch(`${this.baseURL}${this.userId}/performance`);
-      const data = await response.json();
-      const formatedData = this.formatUserPerformance(data);
-      return formatedData;
+      if (this.userId == 12 || this.userId == 18) {
+        const response = await fetch(
+          `${this.baseURL}${this.userId}/performance`
+        );
+        const data = await response.json();
+        const formatedData = this.formatUserPerformance(data);
+        return formatedData;
+      } else {
+        return null;
+      }
     } catch (err) {
       console.error(err);
     }
@@ -57,10 +72,14 @@ export default class CallApi {
 
   async getUserActivity() {
     try {
-      const response = await fetch(`${this.baseURL}${this.userId}/activity`);
-      const data = await response.json();
-      const formatedData = this.formatUserActivity(data);
-      return formatedData;
+      if (this.userId == 12 || this.userId == 18) {
+        const response = await fetch(`${this.baseURL}${this.userId}/activity`);
+        const data = await response.json();
+        const formatedData = this.formatUserActivity(data);
+        return formatedData;
+      } else {
+        return null;
+      }
     } catch (err) {
       console.error(err);
     }
@@ -74,12 +93,16 @@ export default class CallApi {
 
   async getUserSessions() {
     try {
-      const response = await fetch(
-        `${this.baseURL}${this.userId}/average-sessions`
-      );
-      const data = await response.json();
-      const formatedData = this.formatUserSessions(data);
-      return formatedData;
+      if (this.userId == 12 || this.userId == 18) {
+        const response = await fetch(
+          `${this.baseURL}${this.userId}/average-sessions`
+        );
+        const data = await response.json();
+        const formatedData = this.formatUserSessions(data);
+        return formatedData;
+      } else {
+        return null;
+      }
     } catch (err) {
       console.error(err);
     }
@@ -98,10 +121,14 @@ export default class CallApi {
   }
 
   async getUserScore() {
-    const response = await fetch(`${this.baseURL}${this.userId}`);
-    const data = await response.json();
-    const formatedData = this.formatUserScore(data);
-    return formatedData;
+    if (this.userId == 12 || this.userId == 18) {
+      const response = await fetch(`${this.baseURL}${this.userId}`);
+      const data = await response.json();
+      const formatedData = this.formatUserScore(data);
+      return formatedData;
+    } else {
+      return null;
+    }
   }
 
   formatUserScore(data) {
@@ -110,10 +137,14 @@ export default class CallApi {
   }
 
   async getUserNutrients() {
-    const response = await fetch(`${this.baseURL}${this.userId}`);
-    const data = await response.json();
-    const formatedData = this.formatUserNutrients(data);
-    return formatedData;
+    if (this.userId == 12 || this.userId == 18) {
+      const response = await fetch(`${this.baseURL}${this.userId}`);
+      const data = await response.json();
+      const formatedData = this.formatUserNutrients(data);
+      return formatedData;
+    } else {
+      return null;
+    }
   }
 
   formatUserNutrients(data) {
