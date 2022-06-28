@@ -3,7 +3,7 @@
   padding: 1.5rem;
   border-radius: 5px;
   height: 280px;
-  width: 100%;
+  width: fit-content;
 }
 
 .daily-activity-legend {
