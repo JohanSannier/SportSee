@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Daily from "./components/daily-activity";
@@ -11,7 +12,8 @@ import CallApi from "./services/API";
 
 function App(props) {
   const [data, setData] = useState([]);
-  let api = new CallApi(12);
+  let params = useParams();
+  let api = new CallApi(params.userId);
 
   useEffect(() => {
     (async () => {

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./index.css";
 
@@ -7,7 +8,9 @@ export default function index(props) {
     <nav>
       <ul>
         <img src={logo} alt="Logo de SportSee" />
-        <li>Accueil</li>
+        <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+          <li>Accueil</li>
+        </Link>
         <li>Profil</li>
         <li>Réglage</li>
         <li>Communauté</li>

@@ -19,8 +19,5 @@ ul > img {
 
 nav > ul > li {
   cursor: pointer;
-}
-
-nav > ul > li:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
