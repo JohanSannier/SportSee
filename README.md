@@ -5,9 +5,10 @@ Project 12 - Sportsee
 How to install and run the app
 
     After cloning the project to your machine :
-    Step 1 - Get in the directory of the projet with your terminal and run npm install to get all the dependencies needed to run the project.
-    Step 2 - Get in the sportsee/backend directory and run yarn start to start hosting the back end API.
-    Step 3 - Get in the sportsee/frontend/dashboard directory and run npm start to run the app on your browser.
+    Step 1 - Fork the backend repository and clone it on your computer : https://github.com/JohanSannier/P12-backend, then get in the repository and type yarn to install the needed dependencies.
+    Step 2 - Fork the frontend repository and clone it on your computer : https://github.com/JohanSannier/SportSee, then type npm to install the needed dependencies.
+    Step 3 - Get in the P12-backend directory and run yarn start to start hosting the back end API.
+    Step 4 - Get in the sportsee/frontend/dashboard directory and run npm start to run the app on your browser.
 
 Recommendations to run the app smoothly:
 Editor : Visual Studio Code
