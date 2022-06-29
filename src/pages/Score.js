@@ -4,7 +4,11 @@ import CallApi from "../services/API/index";
 import Error from "./Error";
 import "../index.css";
 
-function Score(props) {
+/**
+ *
+ * @returns {HTMLElement} the score page for the developpers
+ */
+function Score() {
   const [data, setData] = useState([]);
   const params = useParams();
   let api = new CallApi(params.userId);

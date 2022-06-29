@@ -5,7 +5,11 @@ import swim from "../../assets/swim.png";
 import bike from "../../assets/bike.png";
 import weight from "../../assets/weight.png";
 
-export default function index(props) {
+/**
+ *
+ * @returns { HTMLElement } the footer
+ */
+export default function index() {
   return (
     <footer>
       <div className="footer-icons">

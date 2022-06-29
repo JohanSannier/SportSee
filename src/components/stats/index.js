@@ -10,6 +10,11 @@ import {
 } from "recharts";
 import "./index.css";
 
+/**
+ *
+ * @param {array} props the stats data in an array
+ * @returns {HTMLElement} the stats chart
+ */
 export default function UserPerformance(props) {
   return (
     <div className="user-performance">

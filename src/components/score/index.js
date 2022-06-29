@@ -1,8 +1,13 @@
 import React from "react";
 import "./index.css";
-import { array } from "prop-types";
+import { object } from "prop-types";
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 
+/**
+ *
+ * @param {object} props the score data in an object
+ * @returns {HTMLElement} the score chart
+ */
 export default function UserScore(props) {
   let chartValues = [
     {
@@ -40,5 +45,5 @@ export default function UserScore(props) {
 }
 
 UserScore.propTypes = {
-  UserScore: array,
+  UserScore: object,
 };

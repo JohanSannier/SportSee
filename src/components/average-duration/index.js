@@ -3,6 +3,11 @@ import { array } from "prop-types";
 import { Line, LineChart, XAxis, YAxis, Tooltip } from "recharts";
 import "./index.css";
 
+/**
+ *
+ * @param {array} props the average duration data in an array
+ * @returns {HTMLElement} the average duration chart
+ */
 export default function userSessions(props) {
   const CustomTooltip = ({ active, payload }) => {
     if (active) {

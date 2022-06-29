@@ -4,7 +4,11 @@ import CallApi from "../services/API/index";
 import "../index.css";
 import Error from "./Error";
 
-function Activities(props) {
+/**
+ *
+ * @returns {HTMLElement} the activities page for the developpers
+ */
+function Activities() {
   const [data, setData] = useState([]);
   const params = useParams();
   let api = new CallApi(params.userId);
@@ -16,10 +20,6 @@ function Activities(props) {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  console.log("====================================");
-  console.log(data);
-  console.log("====================================");
 
   return (
     <>

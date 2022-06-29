@@ -11,6 +11,11 @@ import Welcome from "./components/welcome";
 import Nutrient from "./components/nutrients-details";
 import CallApi from "./services/API";
 
+/**
+ *
+ * @param {*} props the data from the API
+ * @returns { HTMLElement} the app
+ */
 function App(props) {
   const [data, setData] = useState([]);
   const isEmpty = (currentValue) => currentValue === null;

@@ -4,7 +4,11 @@ import CallApi from "../services/API/index";
 import "../index.css";
 import Error from "./Error";
 
-function Activity(props) {
+/**
+ *
+ * @returns {HTMLElement} the activity page for the developpers
+ */
+function Activity() {
   const [data, setData] = useState([]);
   const params = useParams();
   let api = new CallApi(params.userId);

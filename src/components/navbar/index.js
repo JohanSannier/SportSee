@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./index.css";
 
-export default function index(props) {
+/**
+ *
+ * @returns { HTMLElement } the navbar
+ */
+export default function index() {
   return (
     <nav>
       <ul>

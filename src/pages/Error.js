@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Error(props) {
+/**
+ *
+ * @returns {HTMLElement} the error page
+ */
+function Error() {
   return (
     <div className="error-page">
       Cette page n'existe pas.

@@ -14,3 +14,4 @@ Editor : Visual Studio Code
 NodeJS version : 16.15.0
 Npm version : 8.9.0
 Yarn version : 1.22.19
+Screen size : 1024px x 780px minimum

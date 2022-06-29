@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 
-function Home(props) {
+/**
+ *
+ * @returns {HTMLElement} the home page
+ */
+function Home() {
   return (
     <div>
       <Navbar />

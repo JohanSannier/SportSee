@@ -6,6 +6,11 @@ import Carbs from "../../assets/carbs-icon.png";
 import Fat from "../../assets/fat-icon.png";
 import Protein from "../../assets/protein-icon.png";
 
+/**
+ *
+ * @param {array} props the nutrients data in an array
+ * @returns {HTMLElement} the nutrients DOM element
+ */
 export default function UserNutrients(props) {
   const iconsPath = [Fire, Carbs, Fat, Protein];
   return (

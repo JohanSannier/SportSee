@@ -4,7 +4,11 @@ import CallApi from "../services/API/index";
 import "../index.css";
 import Error from "./Error";
 
-function Nutrients(props) {
+/**
+ *
+ * @returns {HTMLElement} the key-data page for the developpers
+ */
+function Nutrients() {
   const [data, setData] = useState([]);
   const params = useParams();
   let api = new CallApi(params.userId);

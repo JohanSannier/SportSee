@@ -5,6 +5,11 @@ import redDot from "../../assets/red-dot.png";
 import blackDot from "../../assets/black-dot.png";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
+/**
+ *
+ * @param {array} props the daily activity data in an array
+ * @returns {HTMLElement} the daily activity chart
+ */
 export default function UserDailyActivity(props) {
   const TooltipStyle = ({ payload }) => {
     if (payload && payload.length) {

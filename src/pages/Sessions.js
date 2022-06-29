@@ -4,7 +4,11 @@ import CallApi from "../services/API/index";
 import Error from "./Error";
 import "../index.css";
 
-function Sessions(props) {
+/**
+ *
+ * @returns {HTMLElement} the sessions page for the developpers
+ */
+function Sessions() {
   const [data, setData] = useState([]);
   const params = useParams();
   let api = new CallApi(params.userId);
