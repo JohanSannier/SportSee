@@ -1,8 +1,11 @@
+import mockedData from "./mockedData";
+
 /* eslint-disable eqeqeq */
 export default class CallApi {
   constructor(userId) {
     this.baseURL = "http://localhost:3000/user/";
     this.userId = userId;
+    this.fake = false;
   }
 
   /**
@@ -32,17 +35,21 @@ export default class CallApi {
    * @returns {string} of the username
    */
   async getUserName() {
-    try {
-      if (this.userId == 12 || this.userId == 18) {
-        const response = await fetch(`${this.baseURL}${this.userId}/`);
-        const data = await response.json();
-        const userName = data.data.userInfos.firstName;
-        return userName;
-      } else {
-        return null;
+    if (this.fake) {
+      return mockedData.username;
+    } else {
+      try {
+        if (this.userId == 12 || this.userId == 18) {
+          const response = await fetch(`${this.baseURL}${this.userId}/`);
+          const data = await response.json();
+          const userName = data.data.userInfos.firstName;
+          return userName;
+        } else {
+          return null;
+        }
+      } catch (err) {
+        console.error(err);
       }
-    } catch (err) {
-      console.error(err);
     }
   }
 
@@ -51,19 +58,23 @@ export default class CallApi {
    * @returns {array} as the final data of the user performance
    */
   async getUserPerformance() {
-    try {
-      if (this.userId == 12 || this.userId == 18) {
-        const response = await fetch(
-          `${this.baseURL}${this.userId}/performance`
-        );
-        const data = await response.json();
-        const formatedData = this.formatUserPerformance(data);
-        return formatedData;
-      } else {
-        return null;
+    if (this.fake) {
+      return mockedData.performance;
+    } else {
+      try {
+        if (this.userId == 12 || this.userId == 18) {
+          const response = await fetch(
+            `${this.baseURL}${this.userId}/performance`
+          );
+          const data = await response.json();
+          const formatedData = this.formatUserPerformance(data);
+          return formatedData;
+        } else {
+          return null;
+        }
+      } catch (err) {
+        console.error(err);
       }
-    } catch (err) {
-      console.error(err);
     }
   }
 
@@ -92,17 +103,23 @@ export default class CallApi {
    * @returns {array} as the final data of the user activity
    */
   async getUserActivity() {
-    try {
-      if (this.userId == 12 || this.userId == 18) {
-        const response = await fetch(`${this.baseURL}${this.userId}/activity`);
-        const data = await response.json();
-        const formatedData = this.formatUserActivity(data);
-        return formatedData;
-      } else {
-        return null;
+    if (this.fake) {
+      return mockedData.activity;
+    } else {
+      try {
+        if (this.userId == 12 || this.userId == 18) {
+          const response = await fetch(
+            `${this.baseURL}${this.userId}/activity`
+          );
+          const data = await response.json();
+          const formatedData = this.formatUserActivity(data);
+          return formatedData;
+        } else {
+          return null;
+        }
+      } catch (err) {
+        console.error(err);
       }
-    } catch (err) {
-      console.error(err);
     }
   }
 
@@ -122,19 +139,23 @@ export default class CallApi {
    * @returns {array} as the final data of the user sessions
    */
   async getUserSessions() {
-    try {
-      if (this.userId == 12 || this.userId == 18) {
-        const response = await fetch(
-          `${this.baseURL}${this.userId}/average-sessions`
-        );
-        const data = await response.json();
-        const formatedData = this.formatUserSessions(data);
-        return formatedData;
-      } else {
-        return null;
+    if (this.fake) {
+      return mockedData.duration;
+    } else {
+      try {
+        if (this.userId == 12 || this.userId == 18) {
+          const response = await fetch(
+            `${this.baseURL}${this.userId}/average-sessions`
+          );
+          const data = await response.json();
+          const formatedData = this.formatUserSessions(data);
+          return formatedData;
+        } else {
+          return null;
+        }
+      } catch (err) {
+        console.error(err);
       }
-    } catch (err) {
-      console.error(err);
     }
   }
 
@@ -160,13 +181,17 @@ export default class CallApi {
    * @returns {object} as the final data of the user score
    */
   async getUserScore() {
-    if (this.userId == 12 || this.userId == 18) {
-      const response = await fetch(`${this.baseURL}${this.userId}`);
-      const data = await response.json();
-      const formatedData = this.formatUserScore(data);
-      return formatedData;
+    if (this.fake) {
+      return mockedData.score;
     } else {
-      return null;
+      if (this.userId == 12 || this.userId == 18) {
+        const response = await fetch(`${this.baseURL}${this.userId}`);
+        const data = await response.json();
+        const formatedData = this.formatUserScore(data);
+        return formatedData;
+      } else {
+        return null;
+      }
     }
   }
 
@@ -185,16 +210,19 @@ export default class CallApi {
    * @returns {array} as the final data of the user nutrients
    */
   async getUserNutrients() {
-    if (this.userId == 12 || this.userId == 18) {
-      const response = await fetch(`${this.baseURL}${this.userId}`);
-      const data = await response.json();
-      const formatedData = this.formatUserNutrients(data);
-      return formatedData;
+    if (this.fake) {
+      return mockedData.nutrients;
     } else {
-      return null;
+      if (this.userId == 12 || this.userId == 18) {
+        const response = await fetch(`${this.baseURL}${this.userId}`);
+        const data = await response.json();
+        const formatedData = this.formatUserNutrients(data);
+        return formatedData;
+      } else {
+        return null;
+      }
     }
   }
-
   /**
    *
    * @param {array} data the raw data of the user nutrients
