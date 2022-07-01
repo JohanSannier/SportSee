@@ -34,7 +34,7 @@ export default function UserScore(props) {
           outerRadius="80%"
           barSize={10}
           data={chartValues}
-          startAngle={110}
+          startAngle={360 * (props.userScore.value / 100)}
           endAngle={0}
         >
           <RadialBar dataKey="value" cornerRadius={10} />

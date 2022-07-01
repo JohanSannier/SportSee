@@ -20,7 +20,7 @@ export default function UserPerformance(props) {
     <div className="user-performance">
       <RadarChart
         outerRadius={90}
-        width={290}
+        width={280}
         height={270}
         data={props.userPerformance}
       >

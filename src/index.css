@@ -19,17 +19,19 @@ ul {
 .app {
   display: flex;
   flex-direction: column;
+  height: 780px;
 }
 
 .main-content {
   display: flex;
-  max-width: 100%;
-  height: 100%;
+  width: 100%;
+  height: calc(100% - 4rem);
 }
 
 .home {
   padding: 1.5rem;
   width: 100%;
+  max-width: 1024px;
 }
 
 .landing-home {
@@ -48,13 +50,13 @@ ul {
 
 .flex-container {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   /* width: 100%; */
   /* height: 100%; */
 }
 
 .left-content {
-  /* width: 80%; */
+  width: 80%;
   height: 100%;
   flex-direction: column;
 }
@@ -62,7 +64,7 @@ ul {
 .bottom-content {
   display: flex;
   height: 16.467rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .error-page {

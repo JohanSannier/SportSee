@@ -5,6 +5,7 @@
   border-radius: 5px;
   margin-left: 1rem;
   width: 100%;
+  max-width: 30%;
 }
 
 .score-chart > h2 {
